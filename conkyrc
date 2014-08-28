@@ -1,13 +1,11 @@
-####################################################################
-#                               conkyrc_hatz
+###############################################################
+# Name    : conkyrc
 # Date    : August/27/2014
 # Author  : Hazur Socconini Alvarado
 # Version : v1.0
-# License : Distributed under the terms of CC0 1.0 Universal
+# License : Distributed under the terms of Creative Commons 1.0 Universal License.
 
-###########################
-#    - Conky settings -   #
-###########################
+##########    - Conky settings -   ############################
 
 update_interval 1
 total_run_times 0
@@ -21,17 +19,15 @@ no_buffers yes
 
 format_human_readable
 
-#####################
-# - Text settings - #
-#####################
+########## - Text settings - ##################################
+
 use_xft yes
 xftfont Ubuntu:size=12
 override_utf8_locale yes
 text_buffer_size 2048
 
-#############################
-# - Window specifications - #
-#############################
+########## - Window specifications - ##########################
+
 own_window_class Conky
 own_window yes
 own_window_type normal
@@ -47,20 +43,22 @@ minimum_size 360 900
 
 default_bar_size 150 8
 default_color gray
-#########################
-# - Graphics settings - #
-#########################
+
+########## - Graphics settings - ##############################
 draw_shades yes
 
 TEXT
-########## - CLOCK - ##############
+########## - CLOCK - ##########################################
 ${color orange}DATE $stippled_hr${font}
 ${color white}${font Arial Black:size=50}${time %H:%M}${font}${color}
 ${color white}${voffset -60}${goto 240}${time %d %B %Y}
+
+########## - WEATHER - ########################################
 ${goto 240}${color orange}Sunrise: ${color white}${exec l=116545;curl -s http://weather.yahooapis.com/forecastrss?w=$l|grep astronomy| awk -F\" '{print $2}'}    
 ${goto 240}${color orange}Sunset: ${color white}${exec l=116545;curl -s http://weather.yahooapis.com/forecastrss?w=$l|grep astronomy| awk -F\" '{print $4}'}
 #${alignc}${color white}${exec l=116545;curl -s http://weather.yahoapis.com/forecastrss?w=$l|grep astronomy| awk -F\" '{print $2 "     " $4;}' | awk 'NR==1'}
 
+########## - CALENDAR BARS - ##################################
 Año: ${exec var1=$(date +%j | awk '{print $1/365*100}');echo ${var1%.*}}%
 ${execbar var1=$(date +%j | awk '{print $1/365*100}');echo ${var1%.*}}
 Mes: ${exec var1=$(date +%d | awk '{print $1/31*100}');echo ${var1%.*}}%
@@ -74,43 +72,43 @@ ${execbar var1=$(date +%M | awk '{print $1/60*100}');echo ${var1%.*}}
 #Minuto: ${exec var1=$(date +%S | awk '{print $1/60*100}');echo ${var1%.*}}%
 #${execbar var1=$(date +%S | awk '{print $1/60*100}');echo ${var1%.*}}
 
-########## - CALENDAR - #############
+########## - CALENDAR MATRIX - ################################
 ${voffset -211}${alignr 35}${font Courier:bold:size=12}${color orange}MO TU WE TH FR SA SU
 ${color white}${execp DJS=`date +%_d`; ncal -C -h | sed '2d' | sed '1d'  | sed '/./!d' | sed 's/$/                     /' | fold -w 21 | sed -n '/^.\{21\}/p' | sed 's/^/${alignr} /' | sed /" $DJS "/s/" $DJS "/" "'${color orange}'"$DJS"'${color white}'" "/}${font}
 
-########## - SYSTEM - #############
+########## - SYSTEM - #########################################
 ${voffset -60}${color orange}SYSTEM $stippled_hr
 ${color white}${font Poky:size=20}S${font}
 ${color}${goto 40}${voffset -30}Kernel:${alignr}${color white}${kernel}
 ${color}${goto 40}Uptime: ${alignr}${color2}${uptime}${color}
 
-########## - CPU - ################
+########## - CPU - ############################################
 ${color white}${exec cat /proc/cpuinfo | grep "model name" | sed -e 's/model name.*: //' | uniq}
 ${voffset -20}${alignr}${color green}${cpu cpu0}%
 ${color white}${font Poky:size=20}P${font}
 ${voffset -20}${goto 40}Running: ${color green}${running_processes}${color white} | Threads: ${color green}${running_threads}${color white} | Total Processes: ${color green}${processes}${color white}
 ${cpubar cpu0 10, 370}
 
-########## - MEM - ###############
+########## - MEM - ############################################
 ${color white}${font Poky:size=20}M${font}
 ${color}${goto 40}${voffset -30}RAM: ${color white}${memmax}  ${color green}$memperc%${color}
 ${color}${goto 40}${mem} / ${memeasyfree}
 ${color white}${goto 12}${exec dmidecode --type 17 | grep -i speed | awk 'NR==1'}
 ${membar 10, 170}
 
-########## - SWAP - ###############
+########## - SWAP - ###########################################
 ${color}${goto 200}${voffset -95}SWAP:  ${color white}${swapmax}${color green}${alignr}$swapperc%${color}
 ${color}${goto 200}${swap} / ${swapmax - swap}${color white}
 ${goto 200}Speed:
 ${goto 200}${swapbar 10, 170}
 
-########## - HD - ###########
+########## - HD - #############################################
 ${color white}${font Poky:size=20}H${font}
 ${color}${goto 40}${voffset -30}HDD: ${color white}${fs_size} - $fs_type${color green}${alignr}$fs_used_perc%${color}
 ${color}${goto 40}${fs_used} / ${fs_free}${color white}
 ${fs_bar 10, 370}
 
-########## - NETWORK - ################
+########## - NETWORK - ########################################
 ${color orange}NETWORK $stippled_hr
 ${color white}${font Poky:size=20}w${font}
 ${color}${goto 40}${voffset -30}Upload:       ${color white}${upspeedf eth0} kB/s ${color}${alignr}Total: ${color white}${totalup eth0}
