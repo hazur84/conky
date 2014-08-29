@@ -5,6 +5,14 @@ My first conky theme for Lubuntu 14.04 LTS
 
     I have optimized it for 1920x1080 resolution. You can edit it.
 
+# Why Conky?:
+
+Conky is a free software system monitor for the X Window System for Gnu/Linux Systems.Conky is highly configurable and is able to monitor many system variables including the status of the CPU, memory, swap space, disk storage, temperatures, processes, network interfaces, battery power, system messages, e-mail inboxes, updates, many popular music players (MPD, XMMS2, BMPx, Audacious, etc.), weather updates, breaking news, and much more. 
+
+Unlike system monitors that use high-level widget toolkits to render their information, Conky is drawn directly in an X window. This allows it to consume relatively fewer system resources.
+
+Source: http://cont3mpo.blogspot.mx/2009/09/monitorea-todo-con-conky.html
+
 Installation Notes:
 ===================
 
@@ -72,6 +80,13 @@ Changelogs:
  + Add Running Threads, Total Threads
  + Change Screenshot Readme
 
+##Notes:
+
+Yahoo weather don't be able Celsius convertion from RSS, the next equation realise the convertion Fahrenheit to Celsius.
+
+        celsius = (fahrenheit-32)*5/9;
+
+
 ## Screenshot:
 
 <img src='ScreenShot_v_1_1.png' alt='image' />
@@ -84,5 +99,11 @@ Changelogs:
 ## Screenshot:
 
 <img src='ScreenShot_v_1_0.png' alt='image' />
+
+
+#To Do:
+
++ Add Table Condition Codes and linkage with "Conky Weather.ttf"
+  Sources: https://developer.yahoo.com/weather/archive.html
 
 
