@@ -74,7 +74,7 @@ v1.1  -   August 28, 2014
 
 Screenshot:
 ==========
-<img src='ScreenShot_v1_1.png’ alt='image' />
+<img src='ScreenShot_v_1_1.png’ alt='image' />
 
 v1.0  -   August 27, 2014
 
@@ -83,6 +83,6 @@ v1.0  -   August 27, 2014
 
 Screenshot:
 ==========
-<img src='ScreenShot_v1_0.png' alt='image' />
+<img src='ScreenShot_v_1_0.png' alt='image' />
 
 
