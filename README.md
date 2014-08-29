@@ -62,6 +62,20 @@ How to add startup applications in lubuntu?
 
 Enjoy :)
 
+Changelogs:
+==========
+
+v1.1  -   August 28, 2014
+
+ + Add Local Weather Temperature (crawler from Yahoo Weather)
+ + Add Date Long Format
+ + Add Running Threads, Total Threads
+ + Change Screenshot Readme
+
+v1.0  -   August 27, 2014
+
++ First versión
+
 
 Screenshot:
 ==========
