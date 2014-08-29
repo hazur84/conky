@@ -82,7 +82,7 @@ Changelogs:
 
 ##Notes:
 
-Yahoo weather don't be able Celsius convertion from RSS, the next equation realise the convertion Fahrenheit to Celsius.
+Yahoo weather don't reliable Celsius convertion from RSS, the next equation converts Fahrenheit to Celsius.
 
         celsius = (fahrenheit-32)*5/9;
 
