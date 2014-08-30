@@ -18,7 +18,7 @@ Installation Notes:
 
  Package Dependencies
  
-     sudo apt-get install lm-sensors,hd-temp,curl,conky-all,dmidecode
+     sudo apt-get install lm-sensors hdtemp curl conky-all dmidecode
 
 After installing above packages you need to change permission of following packages
 
@@ -31,11 +31,19 @@ You need to install Poky.ttf.
 
 Install the "Poky.ttf" font by placing it in your $HOME/.fonts folder.
 
+After rebuild font cache.
+
+    fc-cache -fv
+
 
 Install conkyrc file:
 ======================
 
-Copy or remplace "conkyrc" into the home folder.
+Copy or remplace "conkyrc" into the home folder. 
+
+Execute in terminal:
+
+    conky -c conkyrc
 
 Setting conkyrc file:
 ======================
